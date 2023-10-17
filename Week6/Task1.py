@@ -13,6 +13,7 @@ graph = {
 }
 
 def find_min_weight(graph):
+
     min_weights = {}
     f = 0 
     for node ,All_Data in graph.items():
@@ -29,6 +30,8 @@ def find_min_weight(graph):
         min_weights[node] = {'MoveTo':min_weights_Node ,'Cost':min_weights_}    
         # break      
     return min_weights 
+
+
 
 
 
