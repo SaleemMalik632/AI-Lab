@@ -20,16 +20,12 @@ GRID = [list(row) for row in GRID]
 def transition_probability(state, action, next_state):
     i, j = state // GRID_SIZE, state % GRID_SIZE
     next_i, next_j = next_state // GRID_SIZE, next_state % GRID_SIZE
-    
     if next_i < 0 or next_i >= GRID_SIZE or next_j < 0 or next_j >= GRID_SIZE:
         return 0.0  # Invalid move
-    
     if GRID[i][j] == 'H':
         return 0.0  # Cannot transition from a hole state
-    
     if state == next_state:
         return 0.0  # Staying in the same state has zero probability
-    
     if action == 0:  # Left
         return 1.0 if (i == next_i and j - 1 == next_j) else 0.0
     elif action == 1:  # Down
@@ -52,7 +48,6 @@ def reward(state, action):
 
 # Initialize the value function
 V = np.zeros(NUM_STATES)
-
 # Value Iteration
 gamma = 0.9
 epsilon = 1e-6
