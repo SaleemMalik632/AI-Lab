@@ -78,7 +78,7 @@ class ConnectFour:
     def score_position(self, board, row, col, player):
         score = 0
 
-        # Horizontal
+        # Horizontal 
         for c in range(col, col + 4):
             if 0 <= c < self.cols:
                 if board[row, c] == player:
