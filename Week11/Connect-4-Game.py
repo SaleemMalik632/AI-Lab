@@ -63,7 +63,6 @@ class ConnectFour:
     def evaluate_state(self, board=None):
         if board is None:
             board = self.board
-
         # Evaluate based on the number of connected pieces
         score = 0
         for row in range(self.rows):
@@ -72,18 +71,15 @@ class ConnectFour:
                     score += self.score_position(board, row, col, 1)
                 elif board[row, col] == 2:
                     score -= self.score_position(board, row, col, 2)
-
         return score
 
     def score_position(self, board, row, col, player):
         score = 0
-
         # Horizontal 
         for c in range(col, col + 4):
             if 0 <= c < self.cols:
                 if board[row, c] == player:
                     score += 1
-
         # Vertical
         for r in range(row, row + 4):
             if 0 <= r < self.rows:
